@@ -10,8 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void rr(t_stack **a, t_stack **b)
+#include "../includes/pushswap.h"
+
+void rr(t_list *dig)
 {
-    ra(a);  // Desplaza A hacia arriba
-    rb(b);  // Desplaza B hacia arriba
+    	int	i;
+
+	i = 0;
+	while (i + 1 < dig->sia)
+	{
+		swap(&dig->sa[i], &dig->sa[i + 1]);
+		i++;
+	}
+	i = 0;
+	while (i + 1 < dig->sib)
+	{
+		swap(&dig->sb[i], &dig->sb[i + 1]);
+		i++;
+	}
+	write(1, "rr\n", 3);
 }

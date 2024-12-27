@@ -10,19 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void rra(t_stack **a)
+#include "../includes/pushswap.h"
+
+void rra(t_list *dig)
 {
-    if (*a && (*a)->next)
-    {  // Asegúrate de que A tenga al menos dos elementos
-        t_stack *last = *a;
-        t_stack *second_last = NULL;
-        while (last->next)
-	{  // Busca el último y penúltimo elemento
-            second_last = last;
-            last = last->next;
-        }
-        second_last->next = NULL;  // El penúltimo elemento apunta a NULL
-        last->next = *a;  // El último elemento se convierte en el primero
-        *a = last;  // Ahora A apunta al último elemento
-    }
+    	int	i;
+
+	i = dig->sia - 1;
+	while (i > 0)
+	{
+		swap(&dig->sa[i], &dig->sa[i - 1]);
+		i--;
+	}
+	write(1, "rra\n", 4);
 }

@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void ss(t_stack *a, t_stack *b)
+#include "../includes/pushswap.h"
+
+void	ss(int *stack_a, int *stack_b)
 {
-    sa(a);  // Intercambia los dos primeros de A
-    sb(b);  // Intercambia los dos primeros de B
+    sa(stack_a);
+    sb(stack_b);
 }

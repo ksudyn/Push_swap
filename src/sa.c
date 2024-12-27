@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void sa(t_stack *a)
+#include "../includes/pushswap.h"
+
+void sa(int *sa)
 {
-    if (a && a->next)
-    {  // Asegúrate de que hay al menos dos elementos en A
-        int temp = a->value;
-        a->value = a->next->value;
-        a->next->value = temp;
-    }
+    int	temp;
+
+	temp = sa[0];
+	sa[0] = sa[1];
+	sa[1] = temp;
+	write(1, "sa\n", 3);
 }

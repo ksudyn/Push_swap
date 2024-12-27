@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void rb(t_stack **b)
+#include "../includes/pushswap.h"
+
+void rb(t_list *dig)
 {
-    if (*b && (*b)->next)
-    {  // Asegúrate de que B tenga al menos dos elementos
-        t_stack *temp = *b;
-        *b = (*b)->next;
-        temp->next = NULL;
-        t_stack *last = *b;
-        while (last->next)
-            last = last->next;
-        last->next = temp;
-    }
+	int	i;
+
+	i = 0;
+	while (i + 1 < dig->sib)
+	{
+		swap(&dig->sb[i], &dig->sb[i + 1]);
+		i++;
+	}
+	write(1, "rb\n", 3);
 }

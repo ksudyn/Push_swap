@@ -10,13 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void pb(t_stack **a, t_stack **b)
+#include "../includes/pushswap.h"
+
+void pb(t_list *dig)
 {
-    if (*a)
-    {  // Asegúrate de que A no esté vacío
-        t_stack *temp = *a;  // Guarda el primer elemento de A
-        *a = (*a)->next;  // Elimina el primer elemento de A
-        temp->next = *b;  // Pone el elemento al principio de B
-        *b = temp;  // Ahora B apunta al nuevo primer elemento
-    }
+    	int	i;
+
+	i = dig->sib;
+	dig->sib = dig->sib + 1;
+	dig->sia = dig->sia - 1;
+	while (i > 0)
+	{
+		swap(&dig->sb[i], &dig->sb[i - 1]);
+		i--;
+	}
+	dig->sb[0] = dig->sa[0];
+	i = 0;
+	while (i <= dig->sia - 1)
+	{
+		dig->sa[i] = dig->sa[i + 1];
+		i++;
+	}
+	write(1, "pb\n", 3);
 }
