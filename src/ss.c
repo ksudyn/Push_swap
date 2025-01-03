@@ -12,8 +12,21 @@
 
 #include "../includes/pushswap.h"
 
-void	ss(int *stack_a, int *stack_b)
+void ss(int *stack_a, int *stack_b)
 {
-    sa(stack_a);
-    sb(stack_b);
+    int temp;
+
+    if (stack_a && stack_a[1])
+    {
+        temp = stack_a[0];
+        stack_a[0] = stack_a[1];
+        stack_a[1] = temp;
+    }
+    if (stack_b && stack_b[1])
+    {
+        temp = stack_b[0];
+        stack_b[0] = stack_b[1];
+        stack_b[1] = temp;
+    }
+    write(1, "ss\n", 3);
 }
