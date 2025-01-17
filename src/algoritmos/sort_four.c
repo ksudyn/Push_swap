@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pushswap.h"
+#include "pushswap.h"
 
 void	sort_four(t_list **stack_a, t_list **stack_b, int digits)
 {

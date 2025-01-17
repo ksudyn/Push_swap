@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pushswap.h"
+#include "pushswap.h"
 
 void	const_sort_to_b(t_list **stack_a, t_list **stack_b, int number)
 {

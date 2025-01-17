@@ -13,31 +13,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
-# include "printf.h"
+# include "../includes/libft.h"
+# include "../includes/ft_printf.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
-
-/*
-void	init_stack_a(t_list **a, int *numbers,
-							int len);
- void				append_node(t_list **a, int n);
-t_list	*find_last(t_list *a);
-long	ft_atol(const char *nptr);
-char	**split_input(int argc, char **argv, int *len);
-bool	is_valid(char *str);
-bool	has_dup(int *numbers, int len);
-int		*create_number_array(char **input, int len);
-void	check_dup(t_list **stack_a);
-int		get_len(t_list **a);
-bool	is_numeric(const char *str);
-bool	is_dup(int *numbers, int len);
-bool	is_in_range(int index, int start, int end);
-bool	is_in_range_str(const char *str);
-void	sort_stacks(t_list **a, t_list **b);
-void	free_array(char **array);
-*/
 
 //// algorithms
 void	k_sort(t_list **stack_a, t_list **stack_b, int number);
@@ -60,21 +40,6 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
-
-/* @param a
-void	index_n(t_list **a);
-bool	unindexed(t_list *a);
-t_list	*find_smallest_unindexed(t_list *a);
-int		find_largest_index(t_list *b);
-void	move_largest_to_top(t_list **b,
-							int largest_index);
-void	push_to_a(t_list **a, t_list **b);
-bool	stack_sorted(t_list *stack);
-void	free_stack(t_list **a);
-void	sort_three(t_list **a);
-t_list	*find_max(t_list *a);
-int		ft_stacksize(t_list *stack);
-*/
 
 // parse
 void	check_digits(char **argv, t_list **stack_a);

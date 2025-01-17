@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "../includes/pushswap.h"
+#include "pushswap.h"
 
 void	pa(t_list **a, t_list **b)
 {
