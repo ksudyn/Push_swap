@@ -11,35 +11,22 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-/*
-void ra(t_list *dig)
-{
-    	int	i;
-
-	i = 0;
-	while (i + 1 < dig->sia)
-	{
-		swap(&dig->sa[i], &dig->sa[i + 1]);
-		i++;
-	}
-	write(1, "ra\n", 3);
-}*/
 
 void	ra(t_list **a)
 {
-	t_list	*first;
-	t_list	*last;
+	t_list	*temp;
+	t_list	*move_node;
 
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
-	first = *a;
+	temp = *a;
 	*a = (*a)->next;
 	(*a)->prev = NULL;
-	last = *a;
-	while (last->next != NULL)
-		last = last->next;
-	last->next = first;
-	first->prev = last;
-	first->next = NULL;
+	move_node = *a;
+	while (move_node->next != NULL)
+		move_node = move_node->next;
+	move_node->next = temp;
+	temp->prev = move_node;
+	temp->next = NULL;
 	ft_putstr_fd("ra\n", 1);
 }

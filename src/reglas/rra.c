@@ -11,20 +11,6 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-/*
-void rra(t_list *dig)
-{
-    	int	i;
-
-	i = dig->sia - 1;
-	while (i > 0)
-	{
-		swap(&dig->sa[i], &dig->sa[i - 1]);
-		i--;
-	}
-	write(1, "rra\n", 4);
-}
-*/
 
 void	rra(t_list **stack)
 {
@@ -45,3 +31,34 @@ void	rra(t_list **stack)
 	}
 	ft_printf("rra\n");
 }
+void rra(t_list **a)
+{
+    t_list *temp;
+    t_list *move_node;
+
+    // Si el stack tiene menos de 2 elementos, no se hace nada
+    if (*a == NULL || (*a)->next == NULL)
+        return ;
+
+    // Empezamos en el último nodo
+    move_node = *a;
+    while (move_node->next != NULL)
+        move_node = move_node->next;
+
+    // Guardamos el último nodo
+    temp = move_node;
+
+    // Desconectamos el último nodo del stack
+    move_node->prev->next = NULL;
+
+    // Colocamos el último nodo al principio
+    temp->next = *a;
+    temp->prev = NULL;
+
+    // Actualizamos la cabeza del stack
+    (*a)->prev = temp;
+    *a = temp;
+
+    // Imprimimos la acción realizada
+    ft_putstr_fd("rra\n", 1);
+}//por comprobar si funciona bien

@@ -29,4 +29,4 @@ void	sb(t_list **b)
 	node1->prev = node2;
 	*b = node2;
 	ft_putstr_fd("sb\n", 1);
-}
+}//revisar

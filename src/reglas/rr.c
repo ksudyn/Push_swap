@@ -11,26 +11,6 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-/*
-void rr(t_list *dig)
-{
-    	int	i;
-
-	i = 0;
-	while (i + 1 < dig->sia)
-	{
-		swap(&dig->sa[i], &dig->sa[i + 1]);
-		i++;
-	}
-	i = 0;
-	while (i + 1 < dig->sib)
-	{
-		swap(&dig->sb[i], &dig->sb[i + 1]);
-		i++;
-	}
-	write(1, "rr\n", 3);
-}
-*/
 
 void	rr(t_list **a, t_list **b)
 {

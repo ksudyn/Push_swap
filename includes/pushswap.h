@@ -28,7 +28,7 @@ void	sort_four(t_list **stack_a, t_list **stack_b, int digits);
 void	order_numbers(t_list **stack_a, int first, int second, int third);
 void	sort_three(t_list **stack_a);
 
-// moves
+// reglas
 void	sa(t_list **a);
 void	sb(t_list **b);
 void	pa(t_list **a, t_list **b);
@@ -41,7 +41,7 @@ void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
 
-// parse
+// push_swap_utils
 void	check_digits(char **argv, t_list **stack_a);
 void	check_dup(t_list *stack_a);
 int		check_length(char *numbers);

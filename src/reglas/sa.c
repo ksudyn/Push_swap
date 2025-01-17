@@ -29,4 +29,4 @@ void	sa(t_list **a)
 	node1->prev = node2;
 	*a = node2;
 	ft_putstr_fd("sa\n", 1);
-}
+}//revisar

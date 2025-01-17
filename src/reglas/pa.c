@@ -15,18 +15,18 @@
 
 void	pa(t_list **a, t_list **b)
 {
-	t_list	*node;
+	t_list	*temp;
 
 	if (*b == NULL)
 		return ;
-	node = *b;
+	temp = *b;
 	*b = (*b)->next;
 	if (*b)
 		(*b)->prev = NULL;
-	node->next = *a;
+	temp->next = *a;
 	if (*a)
-		(*a)->prev = node;
-	*a = node;
-	node->prev = NULL;
+		(*a)->prev = temp;
+	*a = temp;
+	temp->prev = NULL;
 	ft_putstr_fd("pa\n", 1);
 }
