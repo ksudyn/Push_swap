@@ -12,25 +12,6 @@
 
 #include "pushswap.h"
 
-void	rrb(t_list **stack)
-{
-	t_list	*second_last;
-	t_list	*last;
-
-	if (*stack != NULL && (*stack)->next != NULL)
-	{
-		second_last = *stack;
-		while (second_last->next->next != NULL)
-			second_last = second_last->next;
-		last = second_last->next;
-		second_last->next = NULL;
-		last->next = *stack;
-		(*stack)->prev = last;
-		last->prev = NULL;
-		*stack = last;
-	}
-	ft_printf("rrb\n");
-}
 void rrb(t_list **b)
 {
     t_list *temp;
