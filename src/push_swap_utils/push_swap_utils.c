@@ -34,27 +34,27 @@ void	*free_array(char **array)
 	return (NULL);
 }
 
-void	check_digits(char **argv, t_list **stack_a)
+void	insert_numbers(char **nums, t_list **stack_a)
 {
-	int	i;
-	int	j;
-	int	nums;
+	int		i;
+	int		*num;
+	t_list	*node;
 
-	i = 1;
-	j = 0;
-	nums = 0;
-	while (argv[i] != NULL)
+	i = 0;
+	while (nums[i] != NULL)
 	{
-		while (argv[i][j] != '\0')
+		num = malloc(sizeof(int));
+		*num = ft_atoi(nums[i]);
+		node = ft_lstnew(num);
+		if (!node)
 		{
-			if (ft_isdigit(argv[i][j]))
-				nums++;
-			j++;
-		}
-		if (nums == 0)
+			ft_lstclear(stack_a, free);
+			free_array(nums);
+			free(nums);
 			print_error(stack_a);
-		j = 0;
+			printf("insert_numbers");
+		}
+		ft_lstadd_back(stack_a, node);
 		i++;
-		nums = 0;
 	}
 }

@@ -12,30 +12,8 @@
 
 #include "pushswap.h"
 
-void	check_dup(t_list *stack_a)
-{
-	t_list	*now;
-	t_list	*comparison;
-	int		now_number;
-	int		comparison_number;
 
-	now = stack_a;
-	while (now != NULL && now->next != NULL)
-	{
-		comparison = now->next;
-		now_number = *((int *)now->content);
-		while (comparison != NULL)
-		{
-			comparison_number = *((int *)comparison->content);
-			if (now_number == comparison_number)
-				print_error(&stack_a);
-			comparison = comparison->next;
-		}
-		now = now->next;
-	}
-}
-
-int	check_length(char *numbers)
+int	check_long_number(char *numbers)
 {
 	int	i;
 	int	count;
@@ -56,37 +34,16 @@ int	check_length(char *numbers)
 	return (0);
 }
 
-int	check_overflow(char *numbers)
+int	check_atoi_atol(char *numbers)
 {
-	if (check_length(numbers))
+	if (check_long_number(numbers))
 		return (1);
 	else if (ft_atoi(numbers) != ft_atol(numbers))
 		return (1);
 	return (0);
 }
 
-void	check_input(char **argv, t_list **stack_a)
-{
-	int	i;
-	int	j;
 
-	i = 1;
-	j = 0;
-	while (argv[i] != NULL)
-	{
-		if (argv[i][0] == '\0')
-			print_error(stack_a);
-		while (argv[i][j] != '\0')
-		{
-			if (!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ')
-				&& (argv[i][j] != '-') && (argv[i][j] != '+'))
-				print_error(stack_a);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-}
 
 int	check_num_array(char **nums)
 {
@@ -104,7 +61,7 @@ int	check_num_array(char **nums)
 			j++;
 		}
 		j = 0;
-		if (check_overflow(nums[i]))
+		if (check_atoi_atol(nums[i]))
 			return (1);
 		i++;
 	}

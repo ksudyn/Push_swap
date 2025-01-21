@@ -44,8 +44,8 @@ void	rrr(t_list **a, t_list **b);
 // push_swap_utils
 void	check_digits(char **argv, t_list **stack_a);
 void	check_dup(t_list *stack_a);
-int		check_length(char *numbers);
-int		check_overflow(char *numbers);
+int		check_long_number(char *numbers);
+int		check_atoi_atol(char *numbers);
 void	check_input(char **argv, t_list **stack_a);
 int		check_num_array(char **nums);
 void	insert_numbers(char **nums, t_list **stack_a);
