@@ -43,27 +43,53 @@ int	check_atoi_atol(char *numbers)
 	return (0);
 }
 
+#include <stdio.h>
+#include <unistd.h> // Para write
 
-
-int	check_num_array(char **nums)
+// Valida si una cadena tiene caracteres válidos para un número
+int validate_characters(char *num)
 {
-	int	i;
-	int	j;
+    int i = 0;
 
-	i = 0;
-	j = 0;
-	while (nums[i] != NULL)
-	{
-		while (nums[i][j] != '\0')
-		{
-			if (!(ft_isdigit(nums[i][j + 1])) && (nums[i][j + 1] != '\0'))
-				return (1);
-			j++;
-		}
-		j = 0;
-		if (check_atoi_atol(nums[i]))
-			return (1);
-		i++;
-	}
-	return (0);
+    while (num[i] != '\0')
+    {
+        if (!(ft_isdigit(num[i])) && num[i] != '+' && num[i] != '-')
+        {
+            write(2, "Error: Caracter invalido\n", 24);
+            return (1);
+        }
+        if ((num[i] == '+' || num[i] == '-') && i > 0)
+        {
+            write(2, "Error: '+' o '-' en mala posicion\n", 33);
+            return (1);
+        }
+        i++;
+    }
+    return (0); // Caracteres válidos
 }
+
+// Valida el rango y la longitud del número
+int validate_range_and_length(char *num)
+{
+    if (check_atoi_atol(num))
+    {
+        write(2, "Error: Numero demasiado largo o fuera del rango\n", 47);
+        return (1);
+    }
+    return (0); // Número dentro del rango y longitud permitida
+}
+
+// Valida un array de cadenas como números válidos
+int check_num_array(char **nums)
+{
+    int i = 0;
+
+    while (nums[i] != NULL)
+    {
+        if (validate_characters(nums[i]) || validate_range_and_length(nums[i]))
+            return (1);
+        i++;
+    }
+    return (0);
+}
+//comprobamos si son numeros validos

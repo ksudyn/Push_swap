@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -Werror -g3 -fPIC $(HEADERS)
 
 SRCS := $(addprefix src/, \
 	principal/main.c principal/utils.c	principal/init.c\
-	push_swap_utils/parse.c	push_swap_utils/push_swap_utils.c	push_swap_utils/check.c\
+	push_swap_utils/parse.c	push_swap_utils/push_swap_utils.c	push_swap_utils/check_num_array.c\
 	reglas/pa.c	reglas/pb.c	reglas/ra.c	reglas/rb.c  reglas/rr.c reglas/rra.c reglas/rrb.c reglas/rrr.c reglas/sa.c reglas/sb.c reglas/ss.c\
 	algoritmos/sort_three.c	algoritmos/sort_four.c	algoritmos/sort_five.c	algoritmos/k_sort.c)
 
