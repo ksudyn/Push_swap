@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_is_sing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 17:37:17 by ksudyn            #+#    #+#             */
-/*   Updated: 2024/10/10 19:42:14 by ksudyn           ###   ########.fr       */
+/*   Created: 2025/01/27 18:56:51 by ksudyn            #+#    #+#             */
+/*   Updated: 2025/01/27 18:57:02 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_node **lst, t_node *new)
+int	ft_is_sing(char c)
 {
-	if (new == NULL)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	if (c == '-' || c == '+' || c == '*' || c == '/' || c == '%')
+	{
+		return (1);
+	}
+	return (0);
 }

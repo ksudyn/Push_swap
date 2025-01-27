@@ -12,15 +12,20 @@
 
 #include "pushswap.h"
 
-int	ft_error(char *str, int ret_value)
+int ft_error(char *str, int ret_value, t_list **stack)
 {
-	ft_putstr_fd(str, 2);
-	return (ret_value);
+    if (stack != NULL)
+        free_node_lst(stack);  // Liberar la memoria asociada con stack si no es NULL
+
+    ft_putstr_fd(str, 2);  // Imprimir el mensaje de error
+    ft_putstr_fd("\n", 2);  // Imprimir salto de línea
+
+    exit(ret_value);  // Terminar el programa con el código de salida 1
 }
 
-void	*free_array(char **array)
+void	free_array(char **array)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (array[i] != NULL)
@@ -29,59 +34,53 @@ void	*free_array(char **array)
 		i++;
 	}
 	free(array);
-	return (NULL);
 }
 
-t_list *create_node(int num)
+t_list *create_node(int num)//bien
 {
     t_list *node;
 
-    node = ft_lstnew(&num);  // Crear un nuevo nodo con el valor num
-    if (!node)
-    {
-        return NULL;  // Si falla la creación, retornar NULL
-    }
+    node = ft_calloc(1, sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node->content = num;
+	node->next = NULL;
     return node;
 }
 
-int convert_and_insert(char *str, t_list **stack_a)
+void insert_node_at_end(t_list**stack_a, t_list *new_node)
 {
-    int num;
-    t_list *node;
+    t_list *last;
 
-    num = ft_atoi(str);  // Convertir la cadena a número entero
-    node = create_node(num);  // Crear el nodo
+    if (new_node == NULL)
+        return; // Si el nuevo nodo es NULL, no hacer nada
 
-    if (!node)  // Si no se pudo crear el nodo
+    if (*stack_a == NULL)
     {
-        return 0;  // Indicar error
+        // Si la pila está vacía, el nuevo nodo se convierte en el primer nodo
+        *stack_a = new_node;
     }
-
-    ft_lstadd_back(stack_a, node);  // Insertar el nodo en la lista
-    return 1;  // Indicar éxito
-}
-
-void insert_numbers(char **nums, t_list **stack_a)
-{
-    int i = 0;
-    int num;
-    t_list *node;
-
-    while (nums[i] != NULL)
+    else
     {
-        num = ft_atoi(nums[i]);  // Convertir la cadena a número
-        node = ft_lstnew(&num);  // Crear el nodo
-
-        if (!node)  // Si no se pudo crear el nodo
-        {// Limpiar la lista y liberar memoria
-            ft_lstclear(stack_a, free);  // Limpiar la lista
-            free_array(nums);  // Liberar el array de cadenas
-            free(nums);  // Liberar el puntero al array de cadenas
-			ft_error("Error: Insert_number\n", 1);
-        }
-
-        ft_lstadd_back(stack_a, node);  // Insertar el nodo en la lista
-        i++;
+        // Si la pila no está vacía, recorremos hasta el último nodo
+        last = *stack_a;
+        while (last->next != NULL)
+            last = last->next;
+        
+        // Enlazamos el último nodo con el nuevo nodo
+        last->next = new_node;
     }
 }
 
+void	free_node_lst(t_list **lst)
+{
+	t_list	*temp;
+
+	while (*lst)
+	{
+		temp = *lst;
+		*lst = (*lst)->next;
+		free(temp);
+	}
+	*lst = NULL;
+}

@@ -32,7 +32,6 @@
 int					ft_isdigit(int c);
 size_t				ft_strlen(const char *s);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
-size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
 int					ft_atoi(const char *str);
 int					ft_atol(const char *nptr);
@@ -51,6 +50,7 @@ int					ft_putptr(void *ptr);
 int					ft_putstr(char *str);
 char				*get_next_line(int fd);
 int					ft_sqrt(int number);
+int					ft_is_sing(char c);
 //ft_printf
 int					ft_printf(char const *format, ...);
 int					ft_putchar_count(char c, int fd);
@@ -59,19 +59,19 @@ int					ft_putnbr_combined_count(long long n, int fd, int is_unsigned);
 int					ft_putnbr_hex_count(unsigned long long n, int fd, int upcase);
 int					ft_putaddress_count(void *ptr);
 
-typedef struct s_list
+typedef struct s_node
 {
 	void			*content;
-	struct s_list	*next;
-	struct s_list	*prev;
+	struct s_node	*next;
+	struct s_node	*prev;
 
 	int				index;
-}					t_list;
+}					t_node;
 
-t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-int					ft_lstsize(t_list *lst);
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_lstclear(t_list **lst, void (*del)(void *));
+t_node				*ft_lstnew(void *content);
+void				ft_lstadd_front(t_node **lst, t_node *new);
+int					ft_lstsize(t_node *lst);
+t_node				*ft_lstlast(t_node *lst);
+void				ft_lstadd_back(t_node **lst, t_node *new);
+void				ft_lstclear(t_node **lst, void (*del)(void *));
 #endif

@@ -42,44 +42,61 @@ int	check_atoi_atol(char *numbers)
 	return (0);
 }
 
-int validate_characters(char *num)
+void validate_range_and_length(char **num, t_list **stack_a)//como la funcion comprove_int de pablo
 {
-    int i = 0;
+    int i;
 
-    while (num[i] != '\0')
+    i = 0;
+    while( num[i] != NULL)
     {
-        if (!(ft_isdigit(num[i])) && num[i] != '+' && num[i] != '-')
+		if (num[i] == NULL || *num[i] == '\0')
         {
-            return (1);
+            ft_error("Error: Cadena vacía\n", 1, stack_a);
         }
-        if ((num[i] == '+' || num[i] == '-') && i > 0)
+        if (check_atoi_atol(num[i]))
         {
-            return (1);
+            ft_error("Error: Número fuera de rango\n", 1, stack_a);
         }
         i++;
     }
-    return (0);
 }
 
-int validate_range_and_length(char *num)
+int validate_characters(char *num)//como el ft_valid_num de pablo
 {
-    if (check_atoi_atol(num))
-    {
-        return (1);
-    }
-    return (0);
+	int	i;
+
+	i = 1;
+	if (ft_is_sing(num[0]) || ft_isdigit(num[0]))
+	{
+		if (ft_is_sing(num[0]) && num[i] == '\0')
+			return (0);
+		while (ft_isdigit(num[i]) || num[i] == '\0')
+		{
+			if (num[i] == '\0')
+				return (1);
+			i++;
+		}
+	}
+	return (0);
 }
 
-int check_num_array(char **nums)
+void	check_num_array(char **num, t_list **stack_a)
 {
-    int i = 0;
+	int	i;
 
-    while (nums[i] != NULL)
-    {
-        if (validate_characters(nums[i]) || validate_range_and_length(nums[i]))
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (num[i] != NULL)
+	{
+		if (!(validate_characters(num[i])))
+		{
+            ft_error("Error: Número inválido\n", 1, stack_a);
+		}
+		else
+		{
+			i++;
+		}
+	}
 }
+
+
 //comprobamos si son numeros validos

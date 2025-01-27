@@ -19,6 +19,14 @@
 # include <stdbool.h>
 # include <stdio.h>
 
+typedef struct s_list
+{
+	int			content;
+	struct s_list	*next;
+	struct s_list	*prev;
+
+	int				index;
+}					t_list;
 // reglas
 void	sa(t_list **a);
 void	sb(t_list **b);
@@ -36,20 +44,17 @@ void	rrr(t_list **a, t_list **b);
 int		check_long_number(char *numbers);
 int		check_atoi_atol(char *numbers);
 int		validate_characters(char *num);
-int		validate_range_and_length(char *num);
-int		check_num_array(char **nums);
-void	check_input(char **argv);
-void	check_digits(char **argv);
-void	split_parse(char **argv, t_list **stack_a);
-void	check_dup(t_list *stack_a);
-void	parse(char **argv, t_list **stack_a);
+void	validate_range_and_length(char **num, t_list **stack_a);
+void	check_num_array(char **num, t_list **stack_a);
+void	insert_stack_parse(t_list **stack_a, char **num);
+void	check_dup_parse(t_list *stack_a);
 //main
 int		main(int argc, char **argv);
 //utils
-void	*free_array(char **array);
-int		ft_error(char *str, int ret_value);
+void	free_array(char **array);
+int		ft_error(char *str, int ret_value, t_list **stack);
 t_list	*create_node(int num);
-int		convert_and_insert(char *str, t_list **stack_a);
-void	insert_numbers(char **nums, t_list **stack_a);
+void	free_node_lst(t_list **lst);
+void	insert_node_at_end(t_list**stack_a, t_list *new_node);
 
 #endif
