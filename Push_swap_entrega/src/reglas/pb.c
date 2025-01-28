@@ -18,14 +18,14 @@ void	pb(t_list **a, t_list **b)
 
 	if (*a == NULL)
 		return ;
-	temp = *a;// Almacena temporalmente el primer nodo de a
-	*a = (*a)->next;// Actualiza a para apuntar al siguiente nodo
+	temp = *a;
+	*a = (*a)->next;
 	if (*a)
-		(*a)->prev = NULL;// Si a no está vacío, actualiza el puntero prev del nuevo primer nodo
-	temp->next = *b;// Conecta el nodo temporal al inicio de b
+		(*a)->prev = NULL;
+	temp->next = *b;
 	if (*b)
-		(*b)->prev = temp;// Si b no está vacío, actualiza el puntero prev del antiguo primer nodo
-	*b = temp;// Actualiza b para que apunte al nuevo primer nodo
-	temp->prev = NULL;// Establece el puntero prev del nuevo primer nodo en NULL
-	ft_putstr_fd("pb\n", 1);// Imprime la operación realizada
+		(*b)->prev = temp;
+	*b = temp;
+	temp->prev = NULL;
+	ft_putstr_fd("pb\n", 1);
 }

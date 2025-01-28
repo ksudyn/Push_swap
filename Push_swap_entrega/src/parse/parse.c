@@ -18,21 +18,20 @@ void insert_stack_parse(t_list **stack_a, char **num)
     int i = 0;
 
     if (num[i] == NULL)
-        ft_error("Error: No hay numeros\n", 1, stack_a);  // Manejo de error si no hay números
-
+    {
+        free_array(num);//esto cuando hay num para lick de memoria
+        ft_error("Error: No hay numeros\n", 1, stack_a);
+    }
     while (num[i] != NULL)
     {
-        // Crear un nuevo nodo con el valor convertido de string a entero
         to_insert = create_node(ft_atoi(num[i]));
 
-        // Usamos la función insert_node_at_end para insertar el nuevo nodo
         insert_node_at_end(stack_a, to_insert);
 
         i++;
     }
 }
-/*
-// Función que verifica si hay números duplicados en la lista
+
 void check_dup_parse(t_list *stack_a)
 {
     t_list *current;
@@ -44,13 +43,15 @@ void check_dup_parse(t_list *stack_a)
         comparison = current->next;
         while (comparison != NULL)
         {
-            if (*((int *)current->content) == *((int *)comparison->content))
+            if (current->content == comparison->content)
             {
-                ft_error("Error: Número duplicado\n", 1, stack_a);
+                ft_error("Error: Número duplicado\n", 1, &stack_a);
             }
             comparison = comparison->next;
         }
         current = current->next;
     }
-}*/
+}
+
+
 

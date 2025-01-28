@@ -11,35 +11,6 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-/*
-int main(int argc, char **argv) 
-{
-    t_list *stack_a;
-    t_list *stack_b;
-    int     i;
-    char    **num;
-
-    num = NULL;
-    i = 1;
-    stack_a = NULL;
-    stack_b = NULL;
-    if (argc < 2)
-    {
-        return (0);
-    }
-
-    while(argv[i] != NULL)
-    {
-        num = ft_split(argv[i], ' ');
-        parse(argv, &stack_a);
-        i++;
-    }
-    // Si llegamos aquí, significa que todos los números son válidos
-    ft_printf("Todos los números son válidos.\n");
-
-    return 0;
-}
-*/
 
 int	main(int argc, char **argv)
 {
@@ -61,6 +32,9 @@ int	main(int argc, char **argv)
 		free_array(num);
 		i++;
 	}
+    count_argv(stack_a);
+    check_dup_parse(stack_a);
+    posicion_number(&stack_a);
 	free_node_lst(&stack_a);
 	return (0);
 }

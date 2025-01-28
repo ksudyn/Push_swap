@@ -15,12 +15,12 @@
 int ft_error(char *str, int ret_value, t_list **stack)
 {
     if (stack != NULL)
-        free_node_lst(stack);  // Liberar la memoria asociada con stack si no es NULL
+        free_node_lst(stack);
 
-    ft_putstr_fd(str, 2);  // Imprimir el mensaje de error
-    ft_putstr_fd("\n", 2);  // Imprimir salto de línea
+    ft_putstr_fd(str, 2);
+    ft_putstr_fd("\n", 2);
 
-    exit(ret_value);  // Terminar el programa con el código de salida 1
+    exit(ret_value);
 }
 
 void	free_array(char **array)
@@ -36,7 +36,7 @@ void	free_array(char **array)
 	free(array);
 }
 
-t_list *create_node(int num)//bien
+t_list *create_node(int num)
 {
     t_list *node;
 
@@ -53,21 +53,18 @@ void insert_node_at_end(t_list**stack_a, t_list *new_node)
     t_list *last;
 
     if (new_node == NULL)
-        return; // Si el nuevo nodo es NULL, no hacer nada
+        return;
 
     if (*stack_a == NULL)
     {
-        // Si la pila está vacía, el nuevo nodo se convierte en el primer nodo
         *stack_a = new_node;
     }
     else
     {
-        // Si la pila no está vacía, recorremos hasta el último nodo
         last = *stack_a;
         while (last->next != NULL)
             last = last->next;
         
-        // Enlazamos el último nodo con el nuevo nodo
         last->next = new_node;
     }
 }

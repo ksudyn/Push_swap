@@ -42,7 +42,7 @@ int	check_atoi_atol(char *numbers)
 	return (0);
 }
 
-void validate_range_and_length(char **num, t_list **stack_a)//como la funcion comprove_int de pablo
+void validate_range_and_length(char **num, t_list **stack_a)
 {
     int i;
 
@@ -51,17 +51,19 @@ void validate_range_and_length(char **num, t_list **stack_a)//como la funcion co
     {
 		if (num[i] == NULL || *num[i] == '\0')
         {
+			free_array(num);
             ft_error("Error: Cadena vacía\n", 1, stack_a);
         }
         if (check_atoi_atol(num[i]))
         {
+			free_array(num);
             ft_error("Error: Número fuera de rango\n", 1, stack_a);
         }
         i++;
     }
 }
 
-int validate_characters(char *num)//como el ft_valid_num de pablo
+int validate_characters(char *num)
 {
 	int	i;
 
@@ -89,6 +91,7 @@ void	check_num_array(char **num, t_list **stack_a)
 	{
 		if (!(validate_characters(num[i])))
 		{
+			free_array(num);
             ft_error("Error: Número inválido\n", 1, stack_a);
 		}
 		else
@@ -97,6 +100,4 @@ void	check_num_array(char **num, t_list **stack_a)
 		}
 	}
 }
-
-
 //comprobamos si son numeros validos
