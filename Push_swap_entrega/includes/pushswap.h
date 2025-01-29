@@ -53,6 +53,7 @@ void	rrr(t_list **a, t_list **b);
 //list_revise
 int 	count_argv(t_list *stack_a);
 void	posicion_number(t_list **stack_a);
+int 	is_ordered_list(t_list **stack_a);
 //push_swap_utils
 int		ft_error(char *str, int ret_value, t_list **stack);
 void	free_array(char **array);

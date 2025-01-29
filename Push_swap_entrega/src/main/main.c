@@ -35,6 +35,7 @@ int	main(int argc, char **argv)
     count_argv(stack_a);
     check_dup_parse(stack_a);
     posicion_number(&stack_a);
+	is_ordered_list(&stack_a);
 	free_node_lst(&stack_a);
 	return (0);
 }

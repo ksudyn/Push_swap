@@ -56,3 +56,22 @@ void posicion_number(t_list **stack_a)
     }
 }
 
+int is_ordered_list(t_list **stack_a)
+{
+    t_list *node;
+
+    node = *stack_a;
+    while(node != NULL && node->next != NULL)
+    {
+        if(node->posicion > node->next->posicion)
+        {
+            ft_printf("lista no ordenada \n");
+            return (0);
+        }
+            
+        node = node->next;
+    }
+    ft_printf("lista ordenada \n");
+    return(1);
+}
+
