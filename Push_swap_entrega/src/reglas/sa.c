@@ -18,8 +18,10 @@ void	sa(t_list **a)
 
 	if(*a == NULL || (*a)->next == NULL)
 		return ;
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = (*a)->next;
-	(*a)->next = temp;
+	temp = (*a)->next;
+	(*a)->next = temp->next;
+	temp->next = *a;
+	*a = temp;
+
+	ft_putstr_fd("sa\n", 1);
 }

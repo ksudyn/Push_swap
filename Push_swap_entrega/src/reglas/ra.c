@@ -20,13 +20,13 @@ void	ra(t_list **a)
 	if (*a == NULL || (*a)->next == NULL)
 		return ;
 	temp = *a;
-	*a = (*a)->next;
-	(*a)->prev = NULL;
+	*a = (*a)->next; // Mover el inicio al segundo nodo
+	temp->next = NULL; // El antiguo primer nodo ahora será el último
+
 	move_node = *a;
-	while (move_node->next != NULL)
+	while (move_node->next != NULL) // Buscar el último nodo
 		move_node = move_node->next;
-	move_node->next = temp;
-	temp->prev = move_node;
-	temp->next = NULL;
+	move_node->next = temp; // Conectar el último nodo con el antiguo primero
+
 	ft_putstr_fd("ra\n", 1);
 }

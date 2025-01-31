@@ -12,7 +12,7 @@
 
 
 #include "pushswap.h"
-
+/*
 void	pa(t_list **a, t_list **b)
 {
 	t_list	*temp;
@@ -29,4 +29,19 @@ void	pa(t_list **a, t_list **b)
 	*a = temp;
 	temp->prev = NULL;
 	ft_putstr_fd("pa\n", 1);
+}*/
+void pa(t_list **a, t_list **b)//esta funciona, la de arriba no
+{
+    t_list *temp;
+
+    if (*b == NULL)
+        return;
+
+    temp = *b;
+    *b = (*b)->next;
+
+    temp->next = *a;
+    *a = temp;
+
+    ft_putstr_fd("pa\n", 1);
 }

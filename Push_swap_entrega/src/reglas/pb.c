@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
+/*
 void	pb(t_list **a, t_list **b)
 {
 	t_list	*temp;
@@ -28,4 +28,19 @@ void	pb(t_list **a, t_list **b)
 	*b = temp;
 	temp->prev = NULL;
 	ft_putstr_fd("pb\n", 1);
+}*/
+void pb(t_list **a, t_list **b)//esta funciona, la de arriba no
+{
+    t_list *temp;
+
+    if (*a == NULL)
+        return;
+
+    temp = *a;
+    *a = (*a)->next;
+
+    temp->next = *b;
+    *b = temp;
+
+    ft_putstr_fd("pb\n", 1);
 }

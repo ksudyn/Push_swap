@@ -28,6 +28,7 @@ typedef struct s_list
 	int				posicion;
 }					t_list;
 //main
+void	push_swap(t_list **stack_a, t_list **stack_b);
 int		main(int argc, char **argv);
 
 //parse
@@ -50,10 +51,16 @@ void	rr(t_list **a, t_list **b);
 void	rra(t_list **a);
 void	rrb(t_list **b);
 void	rrr(t_list **a, t_list **b);
+//algorithms
+void	three_node(t_list	**stack_a);
+void	four_node(t_list	**stack_a, t_list	**stack_b);
+void	five_node(t_list **stack_a, t_list **stack_b);
 //list_revise
 int 	count_argv(t_list *stack_a);
 void	posicion_number(t_list **stack_a);
 int 	is_ordered_list(t_list **stack_a);
+t_list 	*comprove_smaller_node(t_list **stack_a);
+t_list 	*comprove_bigger_node(t_list **stack_a);
 //push_swap_utils
 int		ft_error(char *str, int ret_value, t_list **stack);
 void	free_array(char **array);

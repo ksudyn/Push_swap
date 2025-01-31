@@ -7,7 +7,7 @@ HEADERS = -I ./includes
 CFLAGS = -Wall -Wextra -Werror  $(HEADERS) #-g3 -fPIC
 
 SRCS := $(addprefix src/, \
-	push_swap_utils.c list_revise.c\
+	push_swap_utils.c list_revise.c algorithms.c\
 	main/main.c\
 	parse/parse.c parse/check_num_array.c\
 	reglas/pa.c	reglas/pb.c	reglas/ra.c	reglas/rb.c  reglas/rr.c reglas/rra.c reglas/rrb.c reglas/rrr.c reglas/sa.c reglas/sb.c reglas/ss.c)

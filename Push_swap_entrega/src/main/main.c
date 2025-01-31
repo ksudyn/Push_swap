@@ -12,9 +12,30 @@
 
 #include "pushswap.h"
 
+void	push_swap(t_list **stack_a, t_list **stack_b)
+{
+	int len;
+
+	check_dup_parse(*stack_a);
+	posicion_number(stack_a);
+	len = count_argv(*stack_a);
+	if(!is_ordered_list(stack_a))
+	{
+		if(len == 2)
+				sa(stack_a);
+		else if (len == 3)
+			three_node(stack_a);
+		else if (len == 4)
+			four_node(stack_a, stack_b);
+		else if (len == 5)
+			five_node(stack_a, stack_b);
+	}
+	ft_printf("lista ordenada \n");
+}
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
+	t_list	*stack_b;
 	int		i;
 	char	**num;
 
@@ -32,10 +53,7 @@ int	main(int argc, char **argv)
 		free_array(num);
 		i++;
 	}
-    count_argv(stack_a);
-    check_dup_parse(stack_a);
-    posicion_number(&stack_a);
-	is_ordered_list(&stack_a);
+    push_swap(&stack_a, &stack_b);
 	free_node_lst(&stack_a);
 	return (0);
 }

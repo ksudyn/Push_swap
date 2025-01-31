@@ -16,10 +16,13 @@ void	sb(t_list **b)
 {
 	t_list	*temp;
 
-	if(*b == NULL || (*b)->next == NULL)
+	if (*b == NULL || (*b)->next == NULL)
 		return ;
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = (*b)->next;
-	(*b)->next = temp;
+	temp = (*b)->next;
+	(*b)->next = temp->next;
+	temp->next = *b;
+	*b = temp;
+
+	ft_putstr_fd("sd\n", 1);
 }
+

@@ -14,7 +14,6 @@
 
 void rrb(t_list **b)
 {
-    t_list *temp;
     t_list *move_node;
 
     if (*b == NULL || (*b)->next == NULL)
@@ -24,15 +23,12 @@ void rrb(t_list **b)
     while (move_node->next != NULL)
         move_node = move_node->next;
 
-    temp = move_node;
-
     move_node->prev->next = NULL;
+    move_node->next = *b;
+    move_node->prev = NULL;
 
-    temp->next = *b;
-    temp->prev = NULL;
-
-    (*b)->prev = temp;
-    *b = temp;
+    (*b)->prev = move_node;
+    *b = move_node;
 
     ft_putstr_fd("rrb\n", 1);
 }
