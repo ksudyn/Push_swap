@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:00:34 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/16 15:01:19 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/01/31 20:28:17 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,28 @@ int	check_atoi_atol(char *numbers)
 	return (0);
 }
 
-void validate_range_and_length(char **num, t_list **stack_a)
+void	validate_range_and_length(char **num, t_list **stack_a)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while( num[i] != NULL)
-    {
+	i = 0;
+	while (num[i] != NULL)
+	{
 		if (num[i] == NULL || *num[i] == '\0')
-        {
+		{
 			free_array(num);
-            ft_error("Error: Cadena vacía\n", 1, stack_a);
-        }
-        if (check_atoi_atol(num[i]))
-        {
+			ft_error("Error: Cadena vacía\n", 1, stack_a);
+		}
+		if (check_atoi_atol(num[i]))
+		{
 			free_array(num);
-            ft_error("Error: Número fuera de rango\n", 1, stack_a);
-        }
-        i++;
-    }
+			ft_error("Error: Número fuera de rango\n", 1, stack_a);
+		}
+		i++;
+	}
 }
 
-int validate_characters(char *num)
+int	validate_characters(char *num)
 {
 	int	i;
 
@@ -92,7 +92,7 @@ void	check_num_array(char **num, t_list **stack_a)
 		if (!(validate_characters(num[i])))
 		{
 			free_array(num);
-            ft_error("Error: Número inválido\n", 1, stack_a);
+			ft_error("Error: Número inválido\n", 1, stack_a);
 		}
 		else
 		{
