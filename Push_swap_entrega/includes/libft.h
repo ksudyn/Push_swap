@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:43:49 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/16 14:44:10 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/01/31 20:08:30 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,6 @@ int					ft_putstr(char *str);
 char				*get_next_line(int fd);
 int					ft_sqrt(int number);
 int					ft_is_sing(char c);
-//ft_printf
-int					ft_printf(char const *format, ...);
-int					ft_putchar_count(char c, int fd);
-int					ft_putstr_count(char *s, int fd);
-int					ft_putnbr_combined_count(long long n, int fd, int is_unsigned);
-int					ft_putnbr_hex_count(unsigned long long n, int fd, int upcase);
-int					ft_putaddress_count(void *ptr);
-
 typedef struct s_node
 {
 	void			*content;

@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:43:05 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/16 15:03:33 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/01/31 20:09:17 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@
 
 typedef struct s_list
 {
-	int			content;
-	struct s_list	*next;
-	struct s_list	*prev;
-
+	int				content;
 	int				posicion;
+	struct s_list		*next;
 }					t_list;
 //main
 void	push_swap(t_list **stack_a, t_list **stack_b);
@@ -56,11 +54,11 @@ void	three_node(t_list	**stack_a);
 void	four_node(t_list	**stack_a, t_list	**stack_b);
 void	five_node(t_list **stack_a, t_list **stack_b);
 //list_revise
-int 	count_argv(t_list *stack_a);
+int				count_argv(t_list *stack_a);
 void	posicion_number(t_list **stack_a);
-int 	is_ordered_list(t_list **stack_a);
-t_list 	*comprove_smaller_node(t_list **stack_a);
-t_list 	*comprove_bigger_node(t_list **stack_a);
+int	is_ordered_list(t_list **stack_a);
+t_list	*comprove_smaller_node(t_list **stack_a);
+t_list	*comprove_bigger_node(t_list **stack_a);
 //push_swap_utils
 int		ft_error(char *str, int ret_value, t_list **stack);
 void	free_array(char **array);
