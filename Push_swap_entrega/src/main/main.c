@@ -19,6 +19,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 	check_dup_parse(*stack_a);
 	posicion_number(stack_a);
 	len = count_argv(*stack_a);
+	ft_printf("Cantidad de números: %d\n", len);
 	if (!is_ordered_list(stack_a))
 	{
 		if (len == 2)
@@ -29,6 +30,8 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 			four_node(stack_a, stack_b);
 		else if (len == 5)
 			five_node(stack_a, stack_b);
+		else
+			k_sort(stack_a, stack_b, len);
 	}
 	ft_printf("lista ordenada \n");
 }
@@ -42,6 +45,7 @@ int	main(int argc, char **argv)
 
 	num = NULL;
 	i = 1;
+	stack_b = NULL;
 	stack_a = NULL;
 	if (argc < 2)
 		return (0);

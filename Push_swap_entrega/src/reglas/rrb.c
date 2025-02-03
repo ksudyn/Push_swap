@@ -11,28 +11,8 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
-/*
+
 void rrb(t_list **b)
-{
-    t_list *move_node;
-
-    if (*b == NULL || (*b)->next == NULL)
-        return ;
-
-    move_node = *b;
-    while (move_node->next != NULL)
-        move_node = move_node->next;
-
-    move_node->prev->next = NULL;
-    move_node->next = *b;
-    move_node->prev = NULL;
-
-    (*b)->prev = move_node;
-    *b = move_node;
-
-    ft_putstr_fd("rrb\n", 1);
-}*/
-void rrb(t_list **b)//esta funciona, la de arriba no
 {
     t_list *move_node;
     t_list *temp;
@@ -49,5 +29,5 @@ void rrb(t_list **b)//esta funciona, la de arriba no
 
     temp->next = *b;
     *b = temp;
-    ft_putstr_fd("rra\n", 1);
+    ft_putstr_fd("rrb\n", 1);
 }

@@ -53,8 +53,12 @@ void	rrr(t_list **a, t_list **b);
 void	three_node(t_list	**stack_a);
 void	four_node(t_list	**stack_a, t_list	**stack_b);
 void	five_node(t_list **stack_a, t_list **stack_b);
+//k_sort
+void	move_to_stack_b(t_list **stack_a, t_list **stack_b, int number);
+int		count_rotations(t_list *stack, int max_posicion);
+void	k_sort(t_list **stack_a, t_list **stack_b, int number);
 //list_revise
-int				count_argv(t_list *stack_a);
+int				count_argv(t_list *stack);
 void	posicion_number(t_list **stack_a);
 int	is_ordered_list(t_list **stack_a);
 t_list	*comprove_smaller_node(t_list **stack_a);

@@ -50,33 +50,6 @@ void	four_node(t_list	**stack_a, t_list	**stack_b)
 		}
 	}
 }
-/*
-void	five_node(t_list **stack_a, t_list **stack_b)
-{
-	t_list *smallest;
-
-	smallest = comprove_smaller_node(stack_a);
-	while(smallest != *stack_a)
-	{
-		ra(stack_a);
-	}
-	pb(stack_a, stack_b);
-	while(smallest != *stack_a)
-	{
-		ra(stack_a);
-	}
-	pb(stack_a, stack_b);
-	if(!is_ordered_list(stack_a))
-	{
-		three_node(stack_a);
-	}
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
-	if(!is_ordered_list(stack_a))
-	{
-		sa(stack_a);
-	}
-}*/
 
 void five_node(t_list **stack_a, t_list **stack_b)
 {
@@ -86,13 +59,13 @@ void five_node(t_list **stack_a, t_list **stack_b)
     while (smallest != *stack_a)
     {
         ra(stack_a);
-        smallest = comprove_smaller_node(stack_a);  // Actualiza smallest después de cada rotación
+        smallest = comprove_smaller_node(stack_a);
     }
     pb(stack_a, stack_b);
     while (smallest != *stack_a)
     {
         ra(stack_a);
-        smallest = comprove_smaller_node(stack_a);  // Actualiza smallest después de cada rotación
+        smallest = comprove_smaller_node(stack_a);
     }
     pb(stack_a, stack_b);
     if (!is_ordered_list(stack_a))

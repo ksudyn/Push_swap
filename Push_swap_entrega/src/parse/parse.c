@@ -20,7 +20,7 @@ void	insert_stack_parse(t_list **stack_a, char **num)
 	i = 0;
 	if (num[i] == NULL)
 	{
-		free_array(num);//esto cuando hay num para lick de memoria
+		free_array(num);
 		ft_error("Error: No hay numeros\n", 1, stack_a);
 	}
 	while (num[i] != NULL)

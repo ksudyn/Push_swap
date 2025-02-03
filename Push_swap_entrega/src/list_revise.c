@@ -12,17 +12,16 @@
 
 #include "pushswap.h"
 
-int count_argv(t_list *stack_a)
+int count_argv(t_list *stack)
 {
     int count;
 
     count = 0;
-    while (stack_a)
+    while (stack)
     {
         count++;
-		stack_a = stack_a->next; 
+		stack = stack->next; 
     }
-    ft_printf("Cantidad de números: %d\n", count);
     return count;
 }
 
