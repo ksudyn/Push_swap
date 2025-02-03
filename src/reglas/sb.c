@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:51:49 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/16 14:51:59 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:43:09 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void	sb(t_list **b)
 {
 	t_list	*temp;
 
-	if(*b == NULL || (*b)->next == NULL)
+	if (*b == NULL || (*b)->next == NULL)
 		return ;
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = (*b)->next;
-	(*b)->next = temp;
+	temp = (*b)->next;
+	(*b)->next = temp->next;
+	temp->next = *b;
+	*b = temp;
+	ft_putstr_fd("sb\n", 1);
 }

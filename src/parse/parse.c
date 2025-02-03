@@ -14,7 +14,7 @@
 
 void	insert_stack_parse(t_list **stack_a, char **num)
 {
-	int	i;
+	int		i;
 	t_list	*to_insert;
 
 	i = 0;

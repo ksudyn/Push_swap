@@ -6,40 +6,25 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:01:51 by ksudyn            #+#    #+#             */
-/*   Updated: 2024/12/26 20:02:16 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 17:58:22 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void rra(t_list **a)
+void	rra(t_list **a)
 {
-    t_list *temp;
-    t_list *move_node;
+	t_list	*move_node;
+	t_list	*temp;
 
-    // Si el stack tiene menos de 2 elementos, no se hace nada
-    if (*a == NULL || (*a)->next == NULL)
-        return ;
-
-    // Empezamos en el último nodo
-    move_node = *a;
-    while (move_node->next != NULL)
-        move_node = move_node->next;
-
-    // Guardamos el último nodo
-    temp = move_node;
-
-    // Desconectamos el último nodo del stack
-    move_node->prev->next = NULL;
-
-    // Colocamos el último nodo al principio
-    temp->next = *a;
-    temp->prev = NULL;
-
-    // Actualizamos la cabeza del stack
-    (*a)->prev = temp;
-    *a = temp;
-
-    // Imprimimos la acción realizada
-    ft_putstr_fd("rra\n", 1);
-}//por comprobar si funciona bien
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
+	move_node = *a;
+	while (move_node->next->next != NULL)
+		move_node = move_node->next;
+	temp = move_node->next;
+	move_node->next = NULL;
+	temp->next = *a;
+	*a = temp;
+	ft_putstr_fd("rra\n", 1);
+}

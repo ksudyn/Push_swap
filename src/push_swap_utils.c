@@ -6,21 +6,19 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:41:07 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/24 15:41:38 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:22:12 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int ft_error(char *str, int ret_value, t_list **stack)
+int	ft_error(char *str, int ret_value, t_list **stack)
 {
-    if (stack != NULL)
-        free_node_lst(stack);
-
-    ft_putstr_fd(str, 2);
-    ft_putstr_fd("\n", 2);
-
-    exit(ret_value);
+	if (stack != NULL)
+		free_node_lst(stack);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\n", 2);
+	exit(ret_value);
 }
 
 void	free_array(char **array)
@@ -36,37 +34,35 @@ void	free_array(char **array)
 	free(array);
 }
 
-t_list *create_node(int num)
+t_list	*create_node(int num)
 {
-    t_list *node;
+	t_list	*node;
 
-    node = ft_calloc(1, sizeof(t_list));
+	node = ft_calloc(1, sizeof(t_list));
 	if (node == NULL)
 		return (NULL);
 	node->content = num;
 	node->next = NULL;
-    return node;
+	return (node);
 }
 
-void insert_node_at_end(t_list**stack_a, t_list *new_node)
+void	insert_node_at_end(t_list**stack_a, t_list *new_node)
 {
-    t_list *last;
+	t_list	*last;
 
-    if (new_node == NULL)
-        return;
-
-    if (*stack_a == NULL)
-    {
-        *stack_a = new_node;
-    }
-    else
-    {
-        last = *stack_a;
-        while (last->next != NULL)
-            last = last->next;
-        
-        last->next = new_node;
-    }
+	if (new_node == NULL)
+		return ;
+	if (*stack_a == NULL)
+	{
+		*stack_a = new_node;
+	}
+	else
+	{
+		last = *stack_a;
+		while (last->next != NULL)
+			last = last->next;
+		last->next = new_node;
+	}
 }
 
 void	free_node_lst(t_list **lst)

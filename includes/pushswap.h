@@ -6,12 +6,12 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:43:05 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/31 20:09:17 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:39:43 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
 
 # include "../includes/libft.h"
 # include "../includes/ft_printf.h"
@@ -23,7 +23,7 @@ typedef struct s_list
 {
 	int				content;
 	int				posicion;
-	struct s_list		*next;
+	struct s_list	*next;
 }					t_list;
 //main
 void	push_swap(t_list **stack_a, t_list **stack_b);
@@ -58,9 +58,9 @@ void	move_to_stack_b(t_list **stack_a, t_list **stack_b, int number);
 int		count_rotations(t_list *stack, int max_posicion);
 void	k_sort(t_list **stack_a, t_list **stack_b, int number);
 //list_revise
-int				count_argv(t_list *stack);
+int		count_argv(t_list *stack);
 void	posicion_number(t_list **stack_a);
-int	is_ordered_list(t_list **stack_a);
+int		is_ordered_list(t_list **stack_a);
 t_list	*comprove_smaller_node(t_list **stack_a);
 t_list	*comprove_bigger_node(t_list **stack_a);
 //push_swap_utils

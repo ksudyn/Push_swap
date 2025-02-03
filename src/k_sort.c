@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:29:07 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/02/03 14:29:09 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 18:00:28 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	move_to_stack_b(t_list **stack_a, t_list **stack_b, int number)
 	}
 }
 
-int		count_rotations(t_list *stack, int max_posicion)
+int	count_rotations(t_list *stack, int max_posicion)
 {
 	int	count;
 

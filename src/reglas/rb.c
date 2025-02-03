@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:00:55 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/16 14:49:57 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 17:51:40 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ void	rb(t_list **b)
 		return ;
 	temp = *b;
 	*b = (*b)->next;
-	(*b)->prev = NULL;
+	temp->next = NULL;
 	move_node = *b;
 	while (move_node->next != NULL)
 		move_node = move_node->next;
 	move_node->next = temp;
-	temp->prev = move_node;
-	temp->next = NULL;
 	ft_putstr_fd("rb\n", 1);
 }

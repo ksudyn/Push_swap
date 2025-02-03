@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:51:27 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/16 14:51:43 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 17:57:40 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ void	sa(t_list **a)
 {
 	t_list	*temp;
 
-	if(*a == NULL || (*a)->next == NULL)
+	if (*a == NULL || (*a)->next == NULL)
 		return ;
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = (*a)->next;
-	(*a)->next = temp;
+	temp = (*a)->next;
+	(*a)->next = temp->next;
+	temp->next = *a;
+	*a = temp;
+	ft_putstr_fd("sa\n", 1);
 }
