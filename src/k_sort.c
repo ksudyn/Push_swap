@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:29:07 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/02/03 18:00:28 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:37:58 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	move_to_stack_b(t_list **stack_a, t_list **stack_b, int number)
 	{
 		if ((*stack_a)->posicion <= i)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 1);
 			if (count_argv(*stack_b) > 1)
-				rb(stack_b);
+				rb(stack_b, 1);
 			i++;
 		}
 		else if ((*stack_a)->posicion <= i + range)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 1);
 			i++;
 		}
 		else
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 }
 
@@ -64,15 +64,15 @@ void	k_sort(t_list **stack_a, t_list **stack_b, int number)
 		if (rb_count <= rrb_count)
 		{
 			while ((*stack_b)->posicion != (number - 1))
-				rb(stack_b);
-			pa(stack_a, stack_b);
+				rb(stack_b, 1);
+			pa(stack_a, stack_b, 1);
 			number--;
 		}
 		else
 		{
 			while ((*stack_b)->posicion != (number - 1))
-				rrb(stack_b);
-			pa(stack_a, stack_b);
+				rrb(stack_b, 1);
+			pa(stack_a, stack_b, 1);
 			number--;
 		}
 	}

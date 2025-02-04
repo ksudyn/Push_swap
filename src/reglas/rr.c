@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:01:21 by ksudyn            #+#    #+#             */
-/*   Updated: 2024/12/26 20:01:38 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:28:46 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	rr(t_list **a, t_list **b)
 {
-	ra(a);
-	rb(b);
-	ft_putstr_fd("rr\n", 1);
+	if (*b == NULL || (*b)->next == NULL)
+		return ;
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
+	ra(a, 1);
+	rb(b, 1);
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 14:48:03 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/02/03 19:16:20 by ksudyn           ###   ########.fr       */
+/*   Created: 2025/02/04 15:15:43 by ksudyn            #+#    #+#             */
+/*   Updated: 2025/02/04 15:15:46 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "libft.h"
 
-void	pa(t_list **a, t_list **b, int flag)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_list	*temp;
+	size_t	i;
 
-	if (*b == NULL)
-		return ;
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = *a;
-	*a = temp;
-	if (flag == 1)
-		ft_putstr_fd("pa\n", 1);
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }

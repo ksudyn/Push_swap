@@ -26,6 +26,5 @@ int	ft_sqrt(int number)
 		if ((i * i - number) < ((i - 1) * (i - 1) + (-number)))
 			return (i);
 	}
-	ft_printf("Raiz cuadrada: %d\n", i - 1);
 	return (i - 1);
 }

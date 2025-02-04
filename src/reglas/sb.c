@@ -6,13 +6,13 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:51:49 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/02/03 18:43:09 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:19:52 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	sb(t_list **b)
+void	sb(t_list **b, int flag)
 {
 	t_list	*temp;
 
@@ -22,5 +22,6 @@ void	sb(t_list **b)
 	(*b)->next = temp->next;
 	temp->next = *b;
 	*b = temp;
-	ft_putstr_fd("sb\n", 1);
+	if (flag == 1)
+		ft_putstr_fd("sb\n", 1);
 }

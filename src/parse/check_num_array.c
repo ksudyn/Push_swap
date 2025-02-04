@@ -100,4 +100,3 @@ void	check_num_array(char **num, t_list **stack_a)
 		}
 	}
 }
-//comprobamos si son numeros validos

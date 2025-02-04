@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:59:12 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/02/03 17:53:37 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/04 19:28:58 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	ss(t_list **a, t_list **b)
 {
-	sa(a);
-	sb(b);
-	ft_putstr_fd("ss\n", 1);
+	if (*b == NULL || (*b)->next == NULL)
+		return ;
+	if (*a == NULL || (*a)->next == NULL)
+		return ;
+	sa(a, 1);
+	sb(b, 1);
 }

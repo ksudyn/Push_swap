@@ -16,14 +16,13 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	len;
 
-	check_dup_parse(*stack_a);
+	check_dup_parse(stack_a);
 	posicion_number(stack_a);
 	len = count_argv(*stack_a);
-	ft_printf("Cantidad de números: %d\n", len);
 	if (!is_ordered_list(stack_a))
 	{
 		if (len == 2)
-			sa(stack_a);
+			sa(stack_a, 1);
 		else if (len == 3)
 			three_node(stack_a);
 		else if (len == 4)
@@ -33,7 +32,6 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 		else
 			k_sort(stack_a, stack_b, len);
 	}
-	ft_printf("lista ordenada \n");
 }
 
 int	main(int argc, char **argv)

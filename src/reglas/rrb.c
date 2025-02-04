@@ -6,13 +6,13 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 20:02:23 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/02/03 17:58:08 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/03 19:18:56 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	rrb(t_list **b)
+void	rrb(t_list **b, int flag)
 {
 	t_list	*move_node;
 	t_list	*temp;
@@ -26,5 +26,6 @@ void	rrb(t_list **b)
 	move_node->next = NULL;
 	temp->next = *b;
 	*b = temp;
-	ft_putstr_fd("rrb\n", 1);
+	if (flag == 1)
+		ft_putstr_fd("rrb\n", 1);
 }

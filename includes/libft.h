@@ -24,7 +24,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 45
+#  define BUFFER_SIZE 1024
 # endif
 
 # define MAX_FD 1024
@@ -38,7 +38,7 @@ int					ft_atol(const char *nptr);
 
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strjoin(char const *s1, char const *s2);
 char				**ft_split(char const *s, char c);
 char				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
@@ -51,6 +51,7 @@ int					ft_putstr(char *str);
 char				*get_next_line(int fd);
 int					ft_sqrt(int number);
 int					ft_is_sing(char c);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 typedef struct s_node
 {
 	void			*content;

@@ -31,12 +31,12 @@ void	insert_stack_parse(t_list **stack_a, char **num)
 	}
 }
 
-void	check_dup_parse(t_list *stack_a)
+void	check_dup_parse(t_list **stack_a)
 {
 	t_list	*current;
 	t_list	*comparison;
 
-	current = stack_a;
+	current = *stack_a;
 	while (current != NULL && current->next != NULL)
 	{
 		comparison = current->next;
@@ -44,7 +44,7 @@ void	check_dup_parse(t_list *stack_a)
 		{
 			if (current->content == comparison->content)
 			{
-				ft_error("Error: Número duplicado\n", 1, &stack_a);
+				ft_error("Error: Número duplicado\n", 1, stack_a);
 			}
 			comparison = comparison->next;
 		}
