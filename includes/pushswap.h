@@ -72,6 +72,7 @@ void	free_node_lst(t_list **lst);
 //bonus
 //void	comprove_moves(t_list **stack_a, t_list **stack_b);
 //void	moves(t_list **stack_a, t_list **stack_b, char *line);
-void	moves_check(t_list **stack_a, t_list **stack_b, char *line);
+void	comprove_moves(t_list **stack_a, t_list **stack_b);
+void	moves(t_list **stack_a, t_list **stack_b, char *line);
 
 #endif

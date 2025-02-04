@@ -6,7 +6,7 @@
 /*   By: ksudyn <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:43:49 by ksudyn            #+#    #+#             */
-/*   Updated: 2025/01/31 20:08:30 by ksudyn           ###   ########.fr       */
+/*   Updated: 2025/02/04 20:12:57 by ksudyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int					ft_atol(const char *nptr);
 
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(char *s1, char *s2);
 char				**ft_split(char const *s, char c);
 char				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
