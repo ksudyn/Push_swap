@@ -17,7 +17,7 @@ void	moves(t_list **stack_a, t_list **stack_b, char *line)
 	if (ft_strncmp(line, "pa\n", 3) == 0)
 		pa(stack_a, stack_b, 0);
 	else if (ft_strncmp(line, "pb\n", 3) == 0)
-		pb(stack_b, stack_a, 0);
+		pb(stack_a, stack_b, 0);
 	else if (ft_strncmp(line, "rra\n", 4) == 0)
 		rra(stack_a, 0);
 	else if (ft_strncmp(line, "rrb\n", 4) == 0)
